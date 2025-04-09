@@ -1,0 +1,7 @@
+on:
+    pull_request:
+
+jobs:
+    call_central_workflow:
+        name: CI
+        uses: ./.github/workflows/ci.yml

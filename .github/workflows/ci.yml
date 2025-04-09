@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  workflow_call:
+
+jobs:
+    echo_value:
+        runs-on: ubuntu-24.04
+
+        steps:
+            - name: Echo value
+              run: |
+                echo "value: 1"
