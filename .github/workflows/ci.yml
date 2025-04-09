@@ -11,3 +11,28 @@ jobs:
             - name: Echo value
               run: |
                 echo "value: 1"
+
+    create_new_file:
+        runs-on: ubuntu-24.04
+
+        steps:
+            - name: Create new file
+              run: |
+                echo "some content" > new_file.txt
+    
+    create_pr:
+        runs-on: ubuntu-24.04
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.
+              
+            - name: Create PR
+              uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e  # v7.0.8
+              with:
+                commit-message: "Create new file"
+                branch: new_branch
+                title: PR created from fork
+                body: |
+                  This is a PR from a forked repo.
